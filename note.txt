@@ -1,0 +1,21 @@
+AuthService : gestion de la connection de l'utilisateur
+LogInComponent : form de connection
+SignUpComponent : form de creation de compte
+UserComponent : pour la définition d'un utilisateur
+
+----------------------------------------------------------------------
+
+ajouter un service pour la creation de compte ?
+
+
+
+
+
+
+
+que veux tu faire ? 
+
+je voudrais avoir par exemple : 
+
+inputMail = new Input("email", "email", "Email");
+inputPassword = new Input();

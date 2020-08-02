@@ -1,0 +1,72 @@
+<section class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-2">
+          <b>Welcome</b>
+        </h2>
+      </div>
+    </div>
+</section>
+
+<section class="section">
+    <div 
+        class="container"
+        [ngClass]="{
+            'is-hidden': isConnected()
+        }"
+    >
+        <h4 class="title is-4">
+            <p class="block">
+                Sit down and get ready for an amazing adventure! 🎈
+            </p>
+            <p class="block">
+                First step is 
+                <a routerLink="login">log in</a> or 
+                <a routerLink="signup">sign up</a> 
+                to open the mysterious 🚪 of this site.
+            </p>
+            <p class="block">
+                After that you will see... Something incredible...
+                You never thought you would find this here.
+            </p>
+            <p class="block">
+                So why are you waiting? Go for it and we will meet
+                on the other side. 😉
+            </p>
+        </h4>
+    </div>
+
+    <div 
+        class="container"
+        [ngClass]="{
+            'is-hidden': !isConnected()
+        }"
+    >
+        <h4 class="title is-4">
+            <p class="block">
+                You did it! Welcome to the familly {{ getPseudo() }}. 👍
+            </p>
+            <p class="block">
+                Know you can create your first post, 
+                or see what others have already posted.
+            </p>
+        </h4>
+        
+        <div class="field is-grouped">
+            <div class="control">
+              <button 
+                class="button is-primary"
+              >
+                <b>Create post</b>
+              </button>
+            </div>
+            <div class="control">
+              <button 
+                class="button is-primary is-light"
+              >
+                <b>Watch posts</b>
+              </button>
+            </div>
+        </div>
+    </div>
+</section>

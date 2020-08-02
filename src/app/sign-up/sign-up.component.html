@@ -1,0 +1,229 @@
+<section class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title  is-2">
+          <b>Sign up</b>
+        </h2>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section container">
+
+    <!-- Pseudo -->
+    <div class="field">
+        <label class="label">Pseudo</label>
+        <div class="control has-icons-left has-icons-right">
+          <input 
+            class="input"
+            [ngClass]="{
+              'is-danger': !pseudo.isFailed(),
+              'is-success': !pseudo.isSuccess()
+            }"
+            type="text"
+            placeholder="Pseudo"
+            (change)="onChange()"
+            [(ngModel)]="pseudoValue"
+          />
+          <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+          <span 
+            class="icon is-small is-right"
+            [ngClass]="{
+              'is-hidden': pseudo.isSuccess()
+            }"
+          >
+            <i class="fas fa-check"></i>
+          </span>
+          <span 
+            class="icon is-small is-right"
+            [ngClass]="{
+              'is-hidden': pseudo.isFailed()
+            }"
+          >
+            <i class="fas fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        <p 
+          class="help is-danger"
+          [ngClass]="{
+            'is-hidden': pseudo.isFailed()
+          }"
+        >{{ pseudo.getError() }}</p>
+      </div>
+    
+    <!-- Email -->
+    <div class="field">
+      <label class="label">Email</label>
+      <div class="control has-icons-left has-icons-right">
+        <input 
+          class="input"
+          [ngClass]="{
+            'is-danger': !email.isFailed(),
+            'is-success': !email.isSuccess()
+          }"
+          type="email"
+          placeholder="Email"
+          (change)="onChange()"
+          [(ngModel)]="emailValue"
+        />
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+        <span 
+          class="icon is-small is-right"
+          [ngClass]="{
+            'is-hidden': email.isSuccess()
+          }"
+        >
+          <i class="fas fa-check"></i>
+        </span>
+        <span 
+          class="icon is-small is-right"
+          [ngClass]="{
+            'is-hidden': email.isFailed()
+          }"
+        >
+          <i class="fas fa-exclamation-triangle"></i>
+        </span>
+      </div>
+      <p 
+        class="help is-danger"
+        [ngClass]="{
+          'is-hidden': email.isFailed()
+        }"
+      >{{ email.getError() }}</p>
+    </div>
+    
+    <!-- Password -->
+    <div class="field">
+      <label class="label">Password</label>
+      <div class="control has-icons-left has-icons-right">
+        <input 
+          class="input"
+          [ngClass]="{
+            'is-danger': !password.isFailed(),
+            'is-success': !password.isSuccess()
+          }"
+          type="password" 
+          placeholder="Password"
+          (change)="onChange()"
+          [(ngModel)]="passwordValue"
+        />
+        <span class="icon is-small is-left">
+          <i class="fas fa-lock"></i>
+        </span>
+        <span 
+          class="icon is-small is-right"
+          [ngClass]="{
+            'is-hidden': password.isSuccess()
+          }"
+        >
+          <i class="fas fa-check"></i>
+        </span>
+        <span 
+          class="icon is-small is-right"
+          [ngClass]="{
+            'is-hidden': password.isFailed()
+          }"
+        >
+          <i class="fas fa-exclamation-triangle"></i>
+        </span>
+      </div>
+      <p 
+        class="help is-danger"
+        [ngClass]="{
+          'is-hidden': password.isFailed()
+        }"
+      >{{ password.getError() }}</p>
+    </div>
+
+    <!-- Confirmation Password -->
+    <div class="field">
+        <label class="label">Confirmation password</label>
+        <div class="control has-icons-left has-icons-right">
+          <input 
+            class="disabled input"
+            [ngClass]="{
+              'is-danger': !passwordConfirmation.isFailed(),
+              'is-success': !passwordConfirmation.isSuccess()
+            }"
+            type="password" 
+            placeholder="Password"
+            (change)="onChange()"
+            [(ngModel)]="passwordConfirmationValue"
+          />
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+          <span 
+            class="icon is-small is-right"
+            [ngClass]="{
+              'is-hidden': passwordConfirmation.isSuccess()
+            }"
+          >
+            <i class="fas fa-check"></i>
+          </span>
+          <span 
+            class="icon is-small is-right"
+            [ngClass]="{
+              'is-hidden': passwordConfirmation.isFailed()
+            }"
+          >
+            <i class="fas fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        <p 
+          class="help is-danger"
+          [ngClass]="{
+            'is-hidden': passwordConfirmation.isFailed()
+          }"
+        >{{ passwordConfirmation.getError() }}</p>
+      </div>
+  
+    <div class="field">
+      <div class="control">
+        <label class="checkbox">
+            <input 
+              type="checkbox"
+              (change)="onChange()"
+              [(ngModel)]="termsConditionsValue"
+            />
+            I agree to the <a href="#">terms and conditions</a>
+        </label>
+      </div>
+      <p 
+        class="help is-danger"
+        [ngClass]="{
+          'is-hidden': termsConditions.isFailed()
+        }"
+      >{{ termsConditions.getError() }}</p>
+    </div>
+      
+    <div class="field is-grouped">
+      <div class="control">
+        <button 
+          class="button is-info"
+          [disabled]="hasAnError()"
+          (click)="signUp()"
+          routerLink=""
+        >
+          <b>Sign up</b>
+        </button>
+      </div>
+      <div class="control">
+        <button 
+          class="button is-info is-light"
+        >
+          <b>Cancel</b>
+        </button>
+      </div>
+    </div>
+  
+    <div class="field">
+      Already have an account ? <a routerLink="/login">Log in</a> know.
+    </div>
+  
+  </section>
+  
